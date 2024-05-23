@@ -1,4 +1,17 @@
- echo "BUILD START"
- python3.9 -m pip install -r requirements.txt
- python3.9 manage.py collectstatic --noinput --clear
- echo "BUILD END"
+#!/bin/bash
+
+echo "BUILD START"
+
+# Activate virtual environment if needed
+# Replace 'venv' with your virtual environment directory name
+if [ -d "env" ]; then
+    source env/bin/activate
+fi
+
+# Install dependencies
+python3.9 -m pip install -r requirements.txt
+
+# Collect static files
+python3.9 manage.py collectstatic --noinput --clear
+
+echo "BUILD END"
